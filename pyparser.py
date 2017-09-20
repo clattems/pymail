@@ -5,7 +5,7 @@ from email.parser import Parser
 from email.utils import parseaddr
 
 #  If the e-mail headers are in a file, uncomment this line:
-headers = Parser().parse(open('email.msg', 'r'))
+headers = Parser().parse(open('mail_backup/msg.150593019409-20-17.eml', 'r'))
 
 
 #  Or for parsing headers in a string, use:
@@ -23,16 +23,12 @@ print 'Date: %s' % headers['date']
 print 'Message-id: %s' % headers['message-id']
 
 
-with open("email.msg") as origin_file:
+with open("mail_backup/msg.150593019409-20-17.eml") as origin_file:
     for line in origin_file:
         if "attachment" in line:
             print line
 
-
-
-# filename = headers['to'].replace(" ", "").replace("<", "").replace(">", "")
-# print filename
-# datafrom = "Sender : %s" % str (headers['to'])
-# file = open(filename, 'w')
-#     file.write(datafrom)
-# file.close
+with open("mail_backup/msg.150593019409-20-17.eml") as origin_file:
+    for line in origin_file:
+        if "size=" in line:
+            print line
